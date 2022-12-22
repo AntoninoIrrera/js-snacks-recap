@@ -22,13 +22,16 @@ createApp({
                 })
         },
         check(){
+            
+ 
 
-            if(this.listaInvitati.includes(this.userInput)){
+            if (this.listaInvitati.includes(this.userInput)){
                 return true;
             }else{
                 return false;
             }
-
+                
+            
         }
 
 

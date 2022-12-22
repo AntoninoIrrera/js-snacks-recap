@@ -15,10 +15,10 @@
 <body>
     <div id="app">
         <div class="text-center mt-5" v-if="listaInvitati.length == 10">
-            <label for="name">Inserisci il tuo nome</label>
-            <input type="text" name="name" v-model="userInput">
-            <a href="#" class="btn btn-primary" @click="check()">Invio</a>
-            <p class="mt-5">{{check() == true ? "Sei ben accetto" : "Non sei ben accetto"}}</p>
+            <label for="name">Inserisci il tuo nome:</label>
+            <input class="ms-3" type="text" name="name" v-model="userInput">
+            <!-- <a href="#" class="btn btn-primary" @click="check()">Invio</a> -->
+            <p v-if="userInput != `` " class="mt-5">{{check() == true ? "Sei ben accetto" : "Non sei ben accetto"}}</p>
         </div>
         <div class="text-center mt-5" v-else>
             <p>Lista in caricamento</p>            
