@@ -14,25 +14,16 @@
 
 <body>
     <div id="app">
-        <div class="text-center mt-5">
-            <a href="#" class="btn btn-primary" @click="getRandomNumber()">genera un numero</a>
-            <div class="pari mt-3">
-                <h2 class="mt-3">Pari</h2>
-                <ul class="list-unstyled">
-                    <li v-for=" numberPari in numbersPari">
-                        {{numberPari}}
-                    </li>
-                </ul>
-            </div>
-            <div class="dispari mt-3">
-                <h2 class="mt-3">Dispari</h2>
-                <ul class="list-unstyled">
-                    <li v-for="numberDispari in numbersDispari">
-                        {{numberDispari}}
-                    </li>
-                </ul>
-            </div>
+        <div class="text-center mt-5" v-if="listaInvitati.length == 10">
+            <label for="name">Inserisci il tuo nome</label>
+            <input type="text" name="name" v-model="userInput">
+            <a href="#" class="btn btn-primary" @click="check()">Invio</a>
+            <p class="mt-5">{{check() == true ? "Sei ben accetto" : "Non sei ben accetto"}}</p>
         </div>
+        <div class="text-center mt-5" v-else>
+            <p>Lista in caricamento</p>            
+        </div>
+        
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js"></script>
     <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>

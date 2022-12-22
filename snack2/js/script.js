@@ -6,28 +6,40 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-           
-            numbersPari: [],
-            numbersDispari: [],
+            listaInvitati: [],
+            i: 1,
+            userInput: "",
         }
     },
     methods: {
 
-        getRandomNumber() {
-            axios.get("https://flynn.boolean.careers/exercises/api/random/int")
+        getName() {
+            axios.get("https://flynn.boolean.careers/exercises/api/random/name")
                 .then((response) => {
-                    if (response.data.response % 2 == 0){
 
-                        this.numbersPari.push(response.data.response);
-                    }else{
-                        this.numbersDispari.push(response.data.response);
-
-                    }
-
+                    this.listaInvitati.push(response.data.response);
+                    console.log(response.data.response);
                 })
+        },
+        check(){
+
+            if(this.listaInvitati.includes(this.userInput)){
+                return true;
+            }else{
+                return false;
+            }
+
         }
 
 
     },
-    
+    created(){
+
+        while(this.i <= 10){
+            this.getName();
+            this.i++;
+        }
+
+
+    }
 }).mount("#app")
